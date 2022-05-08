@@ -7,6 +7,7 @@ export type MarkdownMeta = {
     title: string;
     subtitle: string;
     author?: string;
+    img: string;
     genres?: string[];
     readonly episodeKey: string;
     readonly seasonKey: string;

@@ -1,8 +1,9 @@
 import { IncomingMessage, ServerResponse } from "http";
 import url from 'url';
 import fs from 'fs';
-import { structValidResHeaders, storyDict } from "./util";
+import { structValidResHeaders } from "./util";
 import { ResponseBody } from "./types";
+import storyDict from "./map";
 
 export const router = {
     '/all': (req: IncomingMessage, res: ServerResponse) => {
