@@ -13,3 +13,5 @@ export type MarkdownMeta = {
     readonly seasonKey: string;
     readonly key: string;
 };
+
+export type LogLevel = 'info' | 'debug' | 'warn' | 'error' | 'bright';
