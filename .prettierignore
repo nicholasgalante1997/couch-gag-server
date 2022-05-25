@@ -1,0 +1,5 @@
+node_modules
+lib
+data
+*-lock.json
+*.lock
