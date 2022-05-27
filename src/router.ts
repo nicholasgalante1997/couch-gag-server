@@ -8,6 +8,16 @@ export const router = {
     log("info", "Beginning 'all' route operations.");
     structValidResHeaders(res);
     const data = getAllStories();
+    if (!data) {
+      res.end(
+        JSON.stringify({
+          issueCode: 1,
+          errorType:
+            "/all::GetAllStoriesOperation::fs::" + new Date().toDateString(),
+        })
+      );
+      return;
+    }
     res.end(JSON.stringify(data));
     log("info", "'all' route operations complete.");
     return;

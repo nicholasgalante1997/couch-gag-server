@@ -13,7 +13,8 @@
   "author": "@nickgdev",
   "license": "ISC",
   "dependencies": {
-    "@vercel/node": "^1.15.1"
+    "@vercel/node": "^1.15.1",
+    "gray-matter": "^4.0.3"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",

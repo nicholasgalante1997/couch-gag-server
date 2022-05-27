@@ -4,9 +4,14 @@ import fs from "fs";
 import { log } from "./log";
 import { storyMap } from "./map";
 import { ResponseBody } from "./types";
+import { generateStoryCollection } from "./util";
 
 export function getAllStories() {
-  return { collection: storyMap };
+  try {
+    return generateStoryCollection();
+  } catch (e: any) {
+    log("error", e.message || JSON.stringify(e));
+  }
 }
 
 export function getStoryFileById(req: IncomingMessage) {
