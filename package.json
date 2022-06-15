@@ -5,21 +5,30 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
+    "build:local": "tsc",
+    "build:vercel": "yarn prep:vercel && echo \"Vercel lambda constructs generated. Output saved to ./v_out/\"",
     "build": "tsc",
-    "clean": "rm -rf lib",
+    "clean": "rm -rf lib && rm -rf v_out",
+    "clean:vercel": "ts-node src/scripts/clean-vercel.ts",
     "start": "node lib/index.js",
-    "fmt": "prettier --write ."
+    "fmt": "prettier --write .",
+    "prep:vercel:src": "cp -v src/cors.ts src/error.ts src/log.ts src/router.ts src/service.ts src/types.ts src/util.ts v_out/src/",
+    "prep:vercel:deps": "cp package.json v_out/package.json",
+    "prep:vercel:data": "cp -R data/ v_out/data/",
+    "prep:vercel": "yarn prep:vercel:deps && yarn prep:vercel:src && yarn prep:vercel:data"
   },
   "author": "@nickgdev",
   "license": "ISC",
   "dependencies": {
     "@vercel/node": "^1.15.1",
+    "chalk": "4.1.2",
     "gray-matter": "^4.0.3"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",
     "dotenv": "^16.0.0",
     "prettier": "^2.6.2",
+    "ts-node": "^10.8.0",
     "typescript": "^4.6.3"
   }
 }

@@ -1,9 +1,9 @@
-import http, { IncomingMessage, ServerResponse } from "http";
-import dotenv from "dotenv";
-import url from "url";
-import { router } from "./router";
-import { getOptionsResponse, cors } from "./cors";
-import { handleInvalidUlyssesKey, handleInvalidUrl } from "./error";
+import http, { IncomingMessage, ServerResponse } from 'http';
+import dotenv from 'dotenv';
+import url from 'url';
+import { router } from './router';
+import { getOptionsResponse, cors } from './cors';
+import { handleInvalidUlyssesKey, handleInvalidUrl } from './error';
 
 dotenv.config();
 
@@ -15,11 +15,11 @@ const server = http.createServer(function (
 ) {
   const { url: reqUrl, headers } = req;
   const verified: boolean =
-    headers["x-ulysses-key"] === process.env.ULYSSES_HASHED_KEY;
+    headers['x-ulysses-key'] === process.env.ULYSSES_HASHED_KEY;
 
   cors(res);
 
-  if (req.method === "OPTIONS") {
+  if (req.method === 'OPTIONS') {
     getOptionsResponse(res);
     return;
   }
@@ -37,8 +37,8 @@ const server = http.createServer(function (
   if (verified && reqUrl) {
     const parsed = url.parse(reqUrl!, true);
     let { pathname } = parsed;
-    if (pathname !== "/all" && pathname !== "/markdown") {
-      pathname = "default";
+    if (pathname !== '/all' && pathname !== '/markdown') {
+      pathname = 'default';
     }
     const handle = router[pathname as keyof typeof router];
     handle(req, res);

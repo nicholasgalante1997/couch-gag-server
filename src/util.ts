@@ -1,12 +1,12 @@
-import fs from "fs";
-import path from "path";
-import { ServerResponse } from "http";
-import graymatter from "gray-matter";
-import { MarkdownMeta } from "./types";
+import fs from 'fs';
+import path from 'path';
+import { ServerResponse } from 'http';
+import graymatter from 'gray-matter';
+import { MarkdownMeta } from './types';
 
 export function structValidResHeaders(res: ServerResponse) {
   res.writeHead(200, {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json'
   });
 }
 
@@ -19,14 +19,14 @@ export function generateStoryCollection() {
   let error: string | undefined;
   try {
     const markdownFiles: string[] = fs.readdirSync(
-      path.resolve(process.cwd(), "data"),
-      { encoding: "utf-8" }
+      path.resolve(process.cwd(), 'data'),
+      { encoding: 'utf-8' }
     );
     collection = {};
     for (const filename of markdownFiles) {
       const fileData = fs.readFileSync(
-        path.resolve(process.cwd(), "data", filename),
-        { encoding: "utf-8" }
+        path.resolve(process.cwd(), 'data', filename),
+        { encoding: 'utf-8' }
       );
       const meta = parseFrontMatterIntoStoryType(fileData);
       const collectionKeyIdentifier = `s${meta.seasonKey}e${meta.episodeKey}`;
@@ -40,3 +40,5 @@ export function generateStoryCollection() {
     else throw new Error(error);
   }
 }
+
+export const staticStoryList = generateStoryCollection();
