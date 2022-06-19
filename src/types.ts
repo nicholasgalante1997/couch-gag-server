@@ -1,20 +1,6 @@
+import { StoryMeta } from "couch-gag-common-lib";
+
 export type ResponseBody = {
-  meta: MarkdownMeta;
+  meta: StoryMeta;
   content: string;
-};
-
-export type MarkdownMeta = {
-  title: string;
-  subtitle: string;
-  author?: string;
-  img: string;
-  genres?: string[];
-  readonly episodeKey: string;
-  readonly seasonKey: string;
-  readonly key: string;
-};
-
-export type LogLevel = 'info' | 'debug' | 'warn' | 'error' | 'bright';
-export type LogColorMapType = {
-  [k in LogLevel]: (s: string) => string;
 };

@@ -1,7 +1,7 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import url from 'url';
 import fs from 'fs';
-import { log } from './log';
+import { log } from 'couch-gag-common-lib';
 import { ResponseBody } from './types';
 import { generateStoryCollection, staticStoryList } from './util';
 

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { ServerResponse } from 'http';
 import graymatter from 'gray-matter';
-import { MarkdownMeta } from './types';
+import { StoryMeta } from 'couch-gag-common-lib';
 
 export function structValidResHeaders(res: ServerResponse) {
   res.writeHead(200, {
@@ -11,11 +11,11 @@ export function structValidResHeaders(res: ServerResponse) {
 }
 
 export function parseFrontMatterIntoStoryType(str: string) {
-  return graymatter(str).data as MarkdownMeta;
+  return graymatter(str).data as StoryMeta;
 }
 
 export function generateStoryCollection() {
-  let collection: { [x: string]: MarkdownMeta } | undefined;
+  let collection: { [x: string]: StoryMeta } | undefined;
   let error: string | undefined;
   try {
     const markdownFiles: string[] = fs.readdirSync(

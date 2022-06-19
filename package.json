@@ -5,9 +5,10 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
+    "dev": "ts-node src/index.ts",
     "build:local": "tsc",
     "build:vercel": "yarn prep:vercel && echo \"Vercel lambda constructs generated. Output saved to ./v_out/\"",
-    "build": "tsc",
+    "build": "npm run build:local",
     "clean": "rm -rf lib && rm -rf v_out",
     "clean:vercel": "ts-node src/scripts/clean-vercel.ts",
     "start": "node lib/index.js",
@@ -22,6 +23,7 @@
   "dependencies": {
     "@vercel/node": "^1.15.1",
     "chalk": "4.1.2",
+    "couch-gag-common-lib": "../artifacts/couch-gag-common-lib-v1.0.0.tgz",
     "gray-matter": "^4.0.3"
   },
   "devDependencies": {

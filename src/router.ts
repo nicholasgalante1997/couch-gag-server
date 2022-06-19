@@ -1,10 +1,10 @@
 import { IncomingMessage, ServerResponse } from 'http';
-import { log } from './log';
+import { log } from 'couch-gag-common-lib';
 import { catchAllRoute, getAllStories, getStoryFileById } from './service';
 import { structValidResHeaders } from './util';
 
 export const router = {
-  '/all': (req: IncomingMessage, res: ServerResponse) => {
+  '/all': (_req: IncomingMessage, res: ServerResponse) => {
     log('info', "Beginning 'all' route operations.");
     structValidResHeaders(res);
     const data = getAllStories();
@@ -45,7 +45,7 @@ export const router = {
       return;
     }
   },
-  default: (req: IncomingMessage, res: ServerResponse) => {
+  default: (_req: IncomingMessage, res: ServerResponse) => {
     catchAllRoute(res);
   }
 };
