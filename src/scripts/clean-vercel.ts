@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { log } from 'couch-gag-common-lib';
+import { log } from '@nickgdev/couch-gag-common-lib';
 
 function cleanVercel() {
   const vercelPath = path.resolve(process.cwd(), 'v_out');

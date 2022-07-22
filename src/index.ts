@@ -1,7 +1,7 @@
 import http, { IncomingMessage, ServerResponse } from 'http';
 import dotenv from 'dotenv';
 import url from 'url';
-import { log } from 'couch-gag-common-lib';
+import { log } from '@nickgdev/couch-gag-common-lib';
 import { router } from './router';
 import { getOptionsResponse, cors } from './cors';
 import { handleInvalidUlyssesKey, handleInvalidUrl } from './error';

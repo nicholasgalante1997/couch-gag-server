@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { ServerResponse } from 'http';
 import graymatter from 'gray-matter';
-import { StoryMeta } from 'couch-gag-common-lib';
+import { StoryMeta } from '@nickgdev/couch-gag-common-lib';
 
 export function structValidResHeaders(res: ServerResponse) {
   res.writeHead(200, {

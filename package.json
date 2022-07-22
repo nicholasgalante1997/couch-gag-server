@@ -21,9 +21,9 @@
   "author": "@nickgdev",
   "license": "ISC",
   "dependencies": {
+    "@nickgdev/couch-gag-common-lib": "^1.0.0",
     "@vercel/node": "^1.15.1",
     "chalk": "4.1.2",
-    "couch-gag-common-lib": "../artifacts/couch-gag-common-lib-1.0.0.tgz",
     "gray-matter": "^4.0.3",
     "uuid": "^8.3.2"
   },

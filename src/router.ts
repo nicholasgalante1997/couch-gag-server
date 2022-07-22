@@ -1,5 +1,5 @@
 import { IncomingMessage, ServerResponse } from 'http';
-import { log } from 'couch-gag-common-lib';
+import { log } from '@nickgdev/couch-gag-common-lib';
 import { catchAllRoute, getAllStories, getStoryFileById } from './service';
 import { structValidResHeaders } from './util';
 
