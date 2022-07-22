@@ -121,9 +121,9 @@ color-name@~1.1.4:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
-couch-gag-common-lib@../artifacts/couch-gag-common-lib-v1.0.0.tgz:
+couch-gag-common-lib@../artifacts/couch-gag-common-lib-1.0.0.tgz:
   version "1.0.0"
-  resolved "../artifacts/couch-gag-common-lib-v1.0.0.tgz#447894e0ea1f9b7ff0e621812f3c5fe0df1be563"
+  resolved "../artifacts/couch-gag-common-lib-1.0.0.tgz#06daae6cc8524894fd4f15222c407a55c42fb2bb"
 
 create-require@^1.1.0:
   version "1.1.1"
@@ -272,6 +272,11 @@ typescript@^4.6.3:
   version "4.6.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.4.tgz#caa78bbc3a59e6a5c510d35703f6a09877ce45e9"
   integrity sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==
+
+uuid@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
 v8-compile-cache-lib@^3.0.1:
   version "3.0.1"

@@ -6,7 +6,8 @@ import { StoryMeta } from 'couch-gag-common-lib';
 
 export function structValidResHeaders(res: ServerResponse) {
   res.writeHead(200, {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'x-couch-gag-req-id': 'homebase'
   });
 }
 

@@ -47,4 +47,6 @@ const server = http.createServer(function (
   }
 });
 
-server.listen(PORT, () => { log('info', 'Server started on ' + PORT )});
+server.listen(PORT, () => {
+  log('info', 'Server started on ' + PORT);
+});
