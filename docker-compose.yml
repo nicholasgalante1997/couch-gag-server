@@ -12,7 +12,7 @@ services:
       - couch-gag
   nginx-load-balancer:
     build:
-      context: .
+      context: ./nginx/
       dockerfile: ./Nginx.Dockerfile
     ports:
       - "80:8080"
