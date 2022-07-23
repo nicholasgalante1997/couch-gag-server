@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  couch-gag-server:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "2023:2023"
+    image: couch-gag-server:latest
+    networks:
+      - couch-gag
+  nginx-load-balancer:
+    build:
+      context: .
+      dockerfile: ./Nginx.Dockerfile
+    ports:
+      - "80:8080"
+    depends_on:
+      - couch-gag-server
+    networks:
+      - couch-gag
+
+networks:
+  couch-gag:
