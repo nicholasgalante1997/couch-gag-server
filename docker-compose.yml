@@ -14,6 +14,7 @@ services:
     build:
       context: ./nginx/
       dockerfile: ./Nginx.Dockerfile
+    image: nginx-load-balancer:latest
     ports:
       - "80:8080"
     depends_on:
