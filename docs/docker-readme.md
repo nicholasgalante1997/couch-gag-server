@@ -2,11 +2,11 @@
 
 - Nick Galante (Maintainer, Amazon Games SDE)
 
-##### How does *Couch Gag Server* use docker?
+##### How does _Couch Gag Server_ use docker?
 
 We use it to run our node application server in a controlled environment that we can reliably assume will not change until we change it. We also use it to run an nginx load balancing proxy that can help us balance requests to our server on deployment. We err on the side of verbosity in our Dockerfiles. We comment often, but our comments are brief and straight to the point. A good rule of thumb is "Could I say this to an infant and make it make sense and not lose his/her attention?"
 
-We also use docker-compose to organize our multiple containers. We use docker-compose because it gives us the ability to rapidly scale our servers across a number of running container instances with ease from the command line. 
+We also use docker-compose to organize our multiple containers. We use docker-compose because it gives us the ability to rapidly scale our servers across a number of running container instances with ease from the command line.
 
 ##### Our Dockerfiles
 

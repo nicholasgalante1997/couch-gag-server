@@ -1,9 +1,8 @@
 import http from 'http';
 import dotenv from 'dotenv';
-import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
 import { router } from './router';
-import { getOptionsResponse, cors } from './cors';
-import { handleInvalidUlyssesKey, handleInvalidUrl } from './error';
+import { bareMinCors, checkValidUrl, fwdOptions, verifyUlyssesKey } from './middleware';
 
 dotenv.config();
 
@@ -11,52 +10,16 @@ export const PORT = process.env.PORT || (2023 as const);
 
 const app = express();
 
-/** middleware decls */
-function verifyUlyssesKey(req: Request, res: Response, next: NextFunction){
-  const { headers } = req;
-  const verified: boolean = headers['x-ulysses-key'] === process.env.ULYSSES_HASHED_KEY;
-  if (verified) {
-    next();
-  } else {
-    handleInvalidUlyssesKey(res);
-    return;
-  }
-}
-
-function bareMinCors(_req: Request, res: Response, next: NextFunction) {
-  cors(res);
-  next();
-}
-
-function fwdOptions(req: Request, res: Response, next: NextFunction) {
-  if (req.method === 'OPTIONS') {
-    getOptionsResponse(res);
-    return;
-  } else {
-    next();
-  }
-}
-
-function checkValidUrl(req: Request, res: Response, next: NextFunction) {
-  const { url: reqUrl } = req;
-  if (!reqUrl) {
-    handleInvalidUrl(res);
-    return;
-  } else {
-    next();
-  }
-}
-
-/** middleware impls */
+/** middleware */
 
 /** locally defined cors */
-app.use(bareMinCors)
+app.use(bareMinCors);
 
 /** handle options prefetch */
-app.use(fwdOptions)
+app.use(fwdOptions);
 
 /** handle invalid url on request */
-app.use(checkValidUrl)
+app.use(checkValidUrl);
 
 /** verify ulysses key */
 app.use(verifyUlyssesKey);

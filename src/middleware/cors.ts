@@ -1,4 +1,5 @@
 import { ServerResponse } from 'http';
+import { Request, Response, NextFunction } from 'express';
 
 export function cors(res: ServerResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -8,8 +9,7 @@ export function cors(res: ServerResponse) {
   return;
 }
 
-export function getOptionsResponse(res: ServerResponse) {
-  res.writeHead(200);
-  res.end();
-  return;
+export function bareMinCors(_req: Request, res: Response, next: NextFunction) {
+  cors(res);
+  next();
 }

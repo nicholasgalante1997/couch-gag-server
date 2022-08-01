@@ -1,9 +1,9 @@
-import { IncomingMessage, ServerResponse } from 'http';
+import { IncomingMessage } from 'http';
 import url from 'url';
 import fs from 'fs';
 import { log } from '@nickgdev/couch-gag-common-lib';
-import { ResponseBody } from './types';
-import { generateStoryCollection, staticStoryList } from './util';
+import { ResponseBody } from '../types';
+import { generateStoryCollection, staticStoryList } from '../utils';
 
 export function getAllStories() {
   try {
@@ -39,9 +39,4 @@ export function getStoryFileById(req: IncomingMessage) {
   } catch (e: any) {
     throw new Error(e.message || JSON.stringify(e));
   }
-}
-
-export function catchAllRoute(res: ServerResponse) {
-  res.writeHead(404);
-  res.end(JSON.stringify({ issueCode: 0 }));
 }

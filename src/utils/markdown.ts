@@ -1,15 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { ServerResponse } from 'http';
 import graymatter from 'gray-matter';
 import { StoryMeta } from '@nickgdev/couch-gag-common-lib';
-
-export function structValidResHeaders(res: ServerResponse) {
-  res.writeHead(200, {
-    'Content-Type': 'application/json',
-    'x-couch-gag-req-id': 'homebase'
-  });
-}
 
 export function parseFrontMatterIntoStoryType(str: string) {
   return graymatter(str).data as StoryMeta;

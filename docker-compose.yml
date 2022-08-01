@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - "2023:2023"
+      - '2023:2023'
     image: couch-gag-server:latest
     networks:
       - couch-gag
@@ -16,7 +16,7 @@ services:
       dockerfile: ./Nginx.Dockerfile
     image: nginx-load-balancer:latest
     ports:
-      - "80:8080"
+      - '80:8080'
     depends_on:
       - couch-gag-server
     networks:
