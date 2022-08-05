@@ -1,5 +1,6 @@
-import { log } from '@nickgdev/couch-gag-common-lib';
+import url from 'url';
 import { IncomingMessage, ServerResponse } from 'http';
+import { log } from '@nickgdev/couch-gag-common-lib';
 import { structValidResHeaders } from '../middleware';
 import { getAllStories, getStoryFileById } from '../services';
 
@@ -32,7 +33,16 @@ export const handleMarkdownStoryRoute = (
   let err = false;
   log('info', "Beginning 'markdown' route operations.");
   try {
-    const data = getStoryFileById(req);
+    const parsed = url.parse(req.url!, true);
+    log(
+      'info',
+      'Retrieving file with key ' +
+        parsed.query.seasonKey +
+        parsed.query.episodeKey
+    );
+    const seasonKey = Array.isArray(parsed.query.seasonKey) ? parsed.query.seasonKey[0] : (parsed.query.seasonKey ?? '');
+    const episodeKey = Array.isArray(parsed.query.episodeKey) ? parsed.query.episodeKey[0] : (parsed.query.episodeKey ?? '');
+    const data = getStoryFileById(seasonKey, episodeKey);
     structValidResHeaders(res);
     res.end(JSON.stringify(data));
   } catch (e: any) {
@@ -40,6 +50,7 @@ export const handleMarkdownStoryRoute = (
     log('error', e.message || JSON.stringify(e));
     res.writeHead(500, 'Server Issue: issue source::' + JSON.stringify(e));
   } finally {
+    // log iifes
     err
       ? (() => log('error', 'Error thrown during markdown route operations.'))()
       : (() =>

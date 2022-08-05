@@ -1,5 +1,3 @@
-import { IncomingMessage } from 'http';
-import url from 'url';
 import fs from 'fs';
 import { log } from '@nickgdev/couch-gag-common-lib';
 import { ResponseBody } from '../types';
@@ -10,20 +8,12 @@ export function getAllStories() {
     return generateStoryCollection();
   } catch (e: any) {
     log('error', e.message || JSON.stringify(e));
+    return staticStoryList;
   }
 }
 
-export function getStoryFileById(req: IncomingMessage) {
+export function getStoryFileById(seasonKey: string, episodeKey: string) {
   try {
-    const parsed = url.parse(req.url!, true);
-    log(
-      'info',
-      'Retrieving file with key ' +
-        parsed.query.seasonKey +
-        parsed.query.episodeKey
-    );
-    const seasonKey = parsed.query.seasonKey;
-    const episodeKey = parsed.query.episodeKey;
     const safeKey =
       `s${seasonKey}e${episodeKey}` as keyof typeof staticStoryList.collection;
     const safePath = 'data/' + `s${seasonKey}-e${episodeKey}.md`;
