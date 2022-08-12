@@ -1,4 +1,5 @@
 .env 
+couch-gag-gcred.json
 key-gen.js
 node_modules
 lib

@@ -19,7 +19,8 @@
   "author": "@nickgdev",
   "license": "ISC",
   "dependencies": {
-    "@nickgdev/couch-gag-common-lib": "^1.0.2",
+    "@google-cloud/firestore": "^6.0.0",
+    "@nickgdev/couch-gag-common-lib": "^1.1.62",
     "@vercel/node": "^1.15.1",
     "chalk": "4.1.2",
     "express": "^4.18.1",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.25",
+    "@types/uuid": "^8.3.4",
     "dotenv": "^16.0.0",
     "prettier": "^2.6.2",
     "ts-node": "^10.8.0",

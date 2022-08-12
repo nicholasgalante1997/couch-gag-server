@@ -24,11 +24,16 @@ app.use(checkValidUrl);
 /** verify ulysses key */
 app.use(verifyUlyssesKey);
 
+// body parser
+app.use(express.json());
+
 /** end middleware, begin routes */
 
 app.get('/all', router['/all']);
 
 app.get('/markdown', router['/markdown']);
+
+app.post('/theme', router['/theme']);
 
 app.use('*', router.default);
 
