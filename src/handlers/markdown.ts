@@ -40,8 +40,12 @@ export const handleMarkdownStoryRoute = (
         parsed.query.seasonKey +
         parsed.query.episodeKey
     );
-    const seasonKey = Array.isArray(parsed.query.seasonKey) ? parsed.query.seasonKey[0] : (parsed.query.seasonKey ?? '');
-    const episodeKey = Array.isArray(parsed.query.episodeKey) ? parsed.query.episodeKey[0] : (parsed.query.episodeKey ?? '');
+    const seasonKey = Array.isArray(parsed.query.seasonKey)
+      ? parsed.query.seasonKey[0]
+      : parsed.query.seasonKey ?? '';
+    const episodeKey = Array.isArray(parsed.query.episodeKey)
+      ? parsed.query.episodeKey[0]
+      : parsed.query.episodeKey ?? '';
     const data = getStoryFileById(seasonKey, episodeKey);
     structValidResHeaders(res);
     res.end(JSON.stringify(data));

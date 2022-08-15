@@ -1,1 +1,2 @@
-export const USER_REGISTRY_INVALID_EMAIL = 'UserRegistry:::InvalidEmailException';
+export const USER_REGISTRY_INVALID_EMAIL =
+  'UserRegistry:::InvalidEmailException';

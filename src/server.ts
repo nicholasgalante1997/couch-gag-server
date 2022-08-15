@@ -2,7 +2,12 @@ import http from 'http';
 import dotenv from 'dotenv';
 import express from 'express';
 import { router } from './router';
-import { bareMinCors, checkValidUrl, fwdOptions, verifyUlyssesKey } from './middleware';
+import {
+  bareMinCors,
+  checkValidUrl,
+  fwdOptions,
+  verifyUlyssesKey
+} from './middleware';
 
 dotenv.config();
 
