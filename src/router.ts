@@ -4,13 +4,13 @@ import {
   handleMarkdownStoryRoute,
   catchAllRoute,
   createUserHandler,
-  getUserThemeTreatment,
+  handleUserThemeTreatmentRoute
 } from './handlers';
 
 export const router = {
   '/all': handleAllMarkdownRoute,
   '/markdown': handleMarkdownStoryRoute,
-  '/theme': getUserThemeTreatment,
+  '/theme': handleUserThemeTreatmentRoute,
   default: (_req: IncomingMessage, res: ServerResponse) => {
     catchAllRoute(res);
   }
