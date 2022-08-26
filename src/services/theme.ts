@@ -7,6 +7,11 @@ import {
 import { firestore } from '../utils/google/firestore';
 import { StatusCodes } from './../utils/status-codes';
 
+export function getSingleTheme(tidSlice: string) {
+  return heller_couch_view_theme_treatment_pool.ViewThemeTreatments.filter(vt => vt.id.includes(tidSlice));
+}
+
+
 export async function getUserThemeTreatments(
   uId?: string,
   cId?: string,

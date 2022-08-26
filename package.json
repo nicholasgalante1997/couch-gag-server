@@ -1,5 +1,5 @@
 {
-  "name": "simple-node-server",
+  "name": "couch-gag-core-server",
   "version": "1.0.0",
   "description": "markdown server using https module",
   "main": "./lib/index.js",

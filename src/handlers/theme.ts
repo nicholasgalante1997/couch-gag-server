@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { log } from '@nickgdev/couch-gag-common-lib';
 import { StatusCodes } from './../utils/status-codes';
-import { getUserThemeTreatments } from '../services/theme';
+import { getUserThemeTreatments, getSingleTheme } from '../services/theme';
 
 export async function handleUserThemeTreatmentRoute(
   req: Request,
@@ -9,6 +9,17 @@ export async function handleUserThemeTreatmentRoute(
 ) {
   const uId = req.body?.uId;
   const cId = req.body?.cId;
+
+  const devEnvOverride = req.body?.devEnvThemeOverride;
+
+  if (devEnvOverride) {
+    res.status(StatusCodes.OK).json({
+      data: {
+        themeOptions: getSingleTheme(devEnvOverride)
+      }
+    });
+    return;
+  }
 
   log('info', `uId is ${uId};`);
   log('info', `cId is ${cId};`);
