@@ -19,9 +19,9 @@ function includesNTerms(t: string, trms: string[]) {
 
 export function getThemeBySearchTerm(tidSlice: string | string[]) {
   if (typeof tidSlice === 'string') {
-    return POOL.filter(vt => vt.id.includes(tidSlice));
+    return POOL.filter((vt) => vt.id.includes(tidSlice));
   } else {
-    return POOL.filter(vt => includesNTerms(vt.id, tidSlice));
+    return POOL.filter((vt) => includesNTerms(vt.id, tidSlice));
   }
 }
 
