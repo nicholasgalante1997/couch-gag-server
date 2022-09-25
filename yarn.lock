@@ -61,10 +61,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@nickgdev/couch-gag-common-lib@^1.1.91":
-  version "1.1.91"
-  resolved "https://registry.yarnpkg.com/@nickgdev/couch-gag-common-lib/-/couch-gag-common-lib-1.1.91.tgz#d5b79144a015205c1c577c67fcaa4380c83b8ea2"
-  integrity sha512-PPKBIEq2PbcyDIzvo7/VDl1GP2kKFXe4g69/S5fnl8WuYbBNIonUI0mqr5LRhTpEFxHenh0sylywwTGSFXQNwg==
+"@nickgdev/couch-gag-common-lib@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nickgdev/couch-gag-common-lib/-/couch-gag-common-lib-1.2.1.tgz#8e831b2f5e3dc695c75c8b4dcb7388b332e7b60d"
+  integrity sha512-bCrDvk3ngeXNUG0BPm/QdFnqZWH+Jy9YzAGVVPIOKDvZhmFUIrvOJJbt40hjqVWo4xH/z9WpQvKfhF3qVQSqLw==
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
