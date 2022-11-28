@@ -21,18 +21,26 @@ RUN echo "package install complete!"
 
 # copying over all of our project files to 
 RUN echo "porting over project..."
-COPY . .
+COPY ./mdb/ ./mdb/
+COPY ./src/ ./src/
+COPY ./README.md .
+COPY ./tsconfig.json .
+COPY ./.env .
 RUN echo "copied local 'source' dir successfully over to /couchgag/server"
-
-# cleaning up the transpiled js lib if one already exists
-RUN echo "cleaning..."
-RUN yarn clean:build 
-RUN echo "cleaning complete!"
 
 # building a fresh distribution of our js lib from our ts src code
 RUN echo "building a fresh dist..."
 RUN yarn build
 RUN echo "building complete!"
+
+# clean source code
+RUN echo "cleaning dev bloat..."
+RUN rm -rf node_modules/ 
+RUN rm -rf yarn.lock
+RUN yarn install --production
+RUN rm -rf src/
+RUN rm tsconfig.json
+RUN echo "cleaned dev bloat!"
 
 # setting environment variables
 # this is largely for verbosity, as we also set command line env variables in package.json#scripts

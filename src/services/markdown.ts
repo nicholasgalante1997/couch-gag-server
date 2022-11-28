@@ -16,7 +16,7 @@ export function getStoryFileById(seasonKey: string, episodeKey: string) {
   try {
     const safeKey =
       `s${seasonKey}e${episodeKey}` as keyof typeof staticStoryList.collection;
-    const safePath = 'data/' + `s${seasonKey}-e${episodeKey}.md`;
+    const safePath = 'mdb/' + `s${seasonKey}-e${episodeKey}.md`;
     const file = fs.readFileSync(safePath, { encoding: 'utf-8' });
 
     log('info', 'File Retrieved.');

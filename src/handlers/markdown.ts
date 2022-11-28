@@ -10,7 +10,7 @@ export const handleAllMarkdownRoute = (
 ) => {
   log('info', "Beginning 'all' route operations.");
   structValidResHeaders(res);
-  const data = getAllStories();
+  let data = getAllStories();
   if (!data) {
     res.end(
       JSON.stringify({

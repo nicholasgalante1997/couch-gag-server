@@ -38,8 +38,6 @@ app.get('/all', router['/all']);
 
 app.get('/markdown', router['/markdown']);
 
-app.post('/theme', router['/theme']);
-
 app.use('*', router.default);
 
 export const server = http.createServer(app);

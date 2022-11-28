@@ -12,13 +12,13 @@ export function generateStoryCollection() {
   let error: string | undefined;
   try {
     const markdownFiles: string[] = fs.readdirSync(
-      path.resolve(process.cwd(), 'data'),
+      path.resolve(process.cwd(), 'mdb'),
       { encoding: 'utf-8' }
     );
     collection = {};
     for (const filename of markdownFiles) {
       const fileData = fs.readFileSync(
-        path.resolve(process.cwd(), 'data', filename),
+        path.resolve(process.cwd(), 'mdb', filename),
         { encoding: 'utf-8' }
       );
       const meta = parseFrontMatterIntoStoryType(fileData);
