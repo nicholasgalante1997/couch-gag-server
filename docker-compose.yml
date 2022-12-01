@@ -1,15 +1,70 @@
 version: '3.8'
 
 services:
-  couch-gag-server:
+  couch-gag-server-alpha:
     build:
       context: .
       dockerfile: ./Dockerfile
+    environment:
+      - NODE_ENV=production
+      - PORT=2023
+      - SERVER_INDEX=ALPHA
+    expose:
+      - 2023
     ports:
       - '2023:2023'
     image: couch-gag-server:latest
     networks:
       - couch-gag
+  
+  couch-gag-server-bravo:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - NODE_ENV=production
+      - PORT=2024
+      - SERVER_INDEX=BRAVO
+    expose:
+      - 2024
+    ports:
+      - '2024:2024'
+    image: couch-gag-server:latest
+    networks:
+      - couch-gag
+  
+  couch-gag-server-chief:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - NODE_ENV=production
+      - PORT=2025
+      - SERVER_INDEX=CHIEF
+    expose:
+      - 2025
+    ports:
+      - '2025:2025'
+    image: couch-gag-server:latest
+    networks:
+      - couch-gag
+  
+  couch-gag-server-dumpling:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - NODE_ENV=production
+      - PORT=2026
+      - SERVER_INDEX=DUMPLING
+    expose:
+      - 2026
+    ports:
+      - '2026:2026'
+    image: couch-gag-server:latest
+    networks:
+      - couch-gag
+  
   nginx-load-balancer:
     build:
       context: ./nginx/
@@ -18,7 +73,10 @@ services:
     ports:
       - '80:8080'
     depends_on:
-      - couch-gag-server
+      - couch-gag-server-alpha 
+      - couch-gag-server-bravo 
+      - couch-gag-server-chief
+      - couch-gag-server-dumpling
     networks:
       - couch-gag
 

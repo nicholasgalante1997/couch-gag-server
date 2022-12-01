@@ -42,10 +42,5 @@ RUN rm -rf src/
 RUN rm tsconfig.json
 RUN echo "cleaned dev bloat!"
 
-# setting environment variables
-# this is largely for verbosity, as we also set command line env variables in package.json#scripts
-ENV PORT 2023
-EXPOSE 2023
-
 # starting our application with this command, for more info see package.json#scripts
 CMD ["yarn", "start"]

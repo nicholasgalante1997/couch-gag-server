@@ -2,6 +2,7 @@ import fs from 'fs';
 import { log } from '@nickgdev/couch-gag-common-lib';
 import { ResponseBody } from '../types';
 import { generateStoryCollection, staticStoryList } from '../utils';
+import path from 'path';
 
 export function getAllStories() {
   try {
@@ -14,15 +15,13 @@ export function getAllStories() {
 
 export function getStoryFileById(seasonKey: string, episodeKey: string) {
   try {
-    const safeKey =
-      `s${seasonKey}e${episodeKey}` as keyof typeof staticStoryList.collection;
-    const safePath = 'mdb/' + `s${seasonKey}-e${episodeKey}.md`;
+    const safePath = path.resolve(process.cwd(), 'mdb', seasonKey, `${episodeKey}.md`);
     const file = fs.readFileSync(safePath, { encoding: 'utf-8' });
 
     log('info', 'File Retrieved.');
 
     const data: ResponseBody = {
-      meta: staticStoryList.collection[safeKey],
+      meta: staticStoryList.collection[`season_${seasonKey}`][`episode_${episodeKey}`],
       content: file
     };
     return data;

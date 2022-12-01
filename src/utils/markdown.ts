@@ -8,13 +8,23 @@ export function parseFrontMatterIntoStoryType(str: string) {
 }
 
 export function generateStoryCollection() {
-  let collection: { [x: string]: StoryMeta } | undefined;
+  let collection: {
+    [season: string]: {
+      [episode: string]: StoryMeta; 
+    } 
+  } | undefined;
   let error: string | undefined;
   try {
-    const markdownFiles: string[] = fs.readdirSync(
-      path.resolve(process.cwd(), 'mdb'),
-      { encoding: 'utf-8' }
-    );
+    const mdbContents = fs.readdirSync(path.resolve(process.cwd(), 'mdb'), { encoding: 'utf-8' });
+    let markdownFiles: string[] = [];
+    for (const directory of mdbContents) {
+      const absPath = path.resolve(process.cwd(), 'mdb', directory);
+      const files = fs.readdirSync(absPath, { encoding: 'utf-8' });
+      files.reduce((agg: string[], next: string) => {
+        agg.push(`${directory}/${next}`);
+        return agg;
+      }, markdownFiles);
+    }
     collection = {};
     for (const filename of markdownFiles) {
       const fileData = fs.readFileSync(
@@ -22,8 +32,13 @@ export function generateStoryCollection() {
         { encoding: 'utf-8' }
       );
       const meta = parseFrontMatterIntoStoryType(fileData);
-      const collectionKeyIdentifier = `s${meta.seasonKey}e${meta.episodeKey}`;
-      Object.assign(collection, { [collectionKeyIdentifier]: meta });
+      const collectionKeyIdentifier = `season_${meta.seasonKey}`;
+      Object.assign(collection, { 
+        [collectionKeyIdentifier]: {
+          ...collection[collectionKeyIdentifier],
+          [`episode_${meta.episodeKey}`]: meta
+        } 
+      });
     }
   } catch (e: any) {
     error = e.message || JSON.stringify(e);

@@ -6,7 +6,8 @@ import {
   bareMinCors,
   checkValidUrl,
   fwdOptions,
-  verifyUlyssesKey
+  verifyUlyssesKey,
+  couchGagTrace
 } from './middleware';
 
 dotenv.config();
@@ -28,6 +29,9 @@ app.use(checkValidUrl);
 
 /** verify ulysses key */
 app.use(verifyUlyssesKey);
+
+/** trace request */
+app.use(couchGagTrace);
 
 // body parser
 app.use(express.json());
