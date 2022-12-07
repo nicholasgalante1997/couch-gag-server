@@ -17,7 +17,8 @@ export function couchGagTrace(req: Request, res: Response, next: NextFunction){
     log('info', dateline);
 
     const reqline = `
-        [${statusCode}] - ${baseUrl + path}\r\n
+        [${statusCode}] - ${baseUrl + path}
+        
         {
             Params: ${JSON.stringify(params)},
             Headers: ${JSON.stringify(headers)},
