@@ -19,7 +19,7 @@
   "author": "@nickgdev",
   "license": "ISC",
   "dependencies": {
-    "@nickgdev/couch-gag-common-lib": "^1.2.4",
+    "@nickgdev/couch-gag-common-lib": "^1.2.7",
     "@vercel/node": "^1.15.1",
     "chalk": "4.1.2",
     "dotenv": "^16.0.0",

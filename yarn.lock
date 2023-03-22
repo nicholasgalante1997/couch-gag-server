@@ -27,10 +27,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@nickgdev/couch-gag-common-lib@^1.2.4":
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/@nickgdev/couch-gag-common-lib/-/couch-gag-common-lib-1.2.4.tgz#8e8965e5cfa47b6e4103ee843ee3ace7df55844b"
-  integrity sha512-D1zcE0ID3KINxJ2LZCN2M1dwvXs1dGkrJQpTILfiLXuxx16M0wdpxHKeHCKpCOIB8pDSZjSgjnxWeWaZ0dgnOQ==
+"@nickgdev/couch-gag-common-lib@^1.2.7":
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/@nickgdev/couch-gag-common-lib/-/couch-gag-common-lib-1.2.7.tgz#a4e161dbe26903c097f7bab17ddbb559dd95cf3d"
+  integrity sha512-uDk7yBE9fKoCTxIkGPW27smnKgv/9qczff/NO9K8yg4mL4FG+Px0v1dbxVy+6RKyxfUKExNuIimk+yk8X8lLWg==
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
